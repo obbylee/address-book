@@ -4,12 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>🌟 Address Book 📓📖</title>
   </head>
-  <body>
-    <div id="app">
-      <!-- Contacts -->
-    </div>
+  <body class="bg-gray-100">
+    <main class="max-w-[1080px] mx-auto">
+      <section class="h-screen mx-8 md:mx-0">
+        <div class="mt-16 flex justify-between items-center">
+          <h1 class="text-2xl">Address Book</h1>
+          <button
+            type="button"
+            class="border border-gray-900 rounded py-2 px-4 hover:bg-gray-500"
+          >
+            Add New
+          </button>
+        </div>
+
+        <div class="flex gap-2 mt-16">
+          <input
+            type="text"
+            placeholder="Search for address"
+            class="flex-1 border border-gray-300 p-2 rounded"
+          />
+          <button
+            type="button"
+            class="p-2 border border-gray-300 bg-slate-300 rounded"
+          >
+            Search
+          </button>
+          <button
+            type="button"
+            class="p-2 border border-gray-300 bg-slate-300 rounded"
+          >
+            Reset
+          </button>
+        </div>
+
+        <div id="addresses" class="flex flex-col gap-4 mt-4">
+          <!-- <article
+            class="w-full flex flex-col border border-gray-500 rounded p-4"
+          >
+            <h1 class="font-medium text-xl">James Anderson</h1>
+            <address>
+              <p>phone: 123-123-123</p>
+              <p>email: mail@mail.com</p>
+              <p>addres: Street, Usa</p>
+            </address>
+          </article> -->
+        </div>
+      </section>
+    </main>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
