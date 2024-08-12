@@ -12,6 +12,7 @@
         <div class="mt-16 flex justify-between items-center">
           <h1 class="text-2xl">Address Book</h1>
           <button
+            id="addContact"
             type="button"
             class="border border-gray-900 rounded py-2 px-4 hover:bg-gray-500"
           >
@@ -19,40 +20,88 @@
           </button>
         </div>
 
-        <div class="flex gap-2 mt-16">
+        <div class="max-w-full flex mt-16">
           <input
             type="text"
             placeholder="Search for address"
-            class="flex-1 border border-gray-300 p-2 rounded"
+            class="flex-1 p-2 border border-gray-300 rounded"
           />
-          <button
-            type="button"
-            class="p-2 border border-gray-300 bg-slate-300 rounded"
-          >
-            Search
-          </button>
-          <button
-            type="button"
-            class="p-2 border border-gray-300 bg-slate-300 rounded"
-          >
-            Reset
-          </button>
+          <div class="flex">
+            <button
+              type="button"
+              class="p-2 border border-gray-300 bg-slate-300 rounded"
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              class="p-2 border border-gray-300 bg-slate-300 rounded"
+            >
+              Reset
+            </button>
+          </div>
         </div>
 
-        <div id="addresses" class="flex flex-col gap-4 mt-4">
-          <!-- <article
-            class="w-full flex flex-col border border-gray-500 rounded p-4"
-          >
-            <h1 class="font-medium text-xl">James Anderson</h1>
-            <address>
-              <p>phone: 123-123-123</p>
-              <p>email: mail@mail.com</p>
-              <p>addres: Street, Usa</p>
-            </address>
-          </article> -->
-        </div>
+        <div id="addresses" class="flex flex-col gap-4 mt-4"></div>
       </section>
     </main>
+
+    <div
+      id="modal"
+      class="fixed top-0 min-h-screen min-w-full bg-gray-500 bg-opacity-50 flex justify-center items-center hidden"
+    >
+      <div
+        class="min-w-[330px] px-4 py-8 border rounded-xl flex flex-col gap-4 bg-white"
+      >
+        <div>
+          <h1 class="text-xl font-medium">Contact</h1>
+        </div>
+        <div class="flex flex-col gap-4" id="form">
+          <input type="text" name="id" hidden />
+          <input
+            name="fullname"
+            class="border border-gray-400 rounded p-2"
+            type="text"
+            placeholder="Enter fullname..."
+          />
+          <input
+            name="phone"
+            class="border border-gray-400 rounded p-2"
+            type="text"
+            placeholder="Enter phone..."
+          />
+          <input
+            name="email"
+            class="border border-gray-400 rounded p-2"
+            type="text"
+            placeholder="Enter email..."
+          />
+          <input
+            name="address"
+            class="border border-gray-400 rounded p-2"
+            type="text"
+            placeholder="Enter address..."
+          />
+        </div>
+
+        <div class="w-full flex justify-end items-center gap-2">
+          <button
+            id="btnCloseModal"
+            type="button"
+            class="p-2 border border-gray-300 bg-slate-300 rounded"
+          >
+            Close
+          </button>
+          <button
+            id="btnSave"
+            type="button"
+            class="p-2 border border-gray-300 bg-emerald-300 rounded"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
