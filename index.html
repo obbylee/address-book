@@ -10,7 +10,7 @@
     <main class="max-w-[1080px] mx-auto">
       <section class="h-screen mx-8 md:mx-0">
         <div class="mt-16 flex justify-between items-center">
-          <h1 class="text-2xl">Address Book</h1>
+          <h1 class="text-2x">Address Book</h1>
           <button
             id="addContact"
             type="button"
@@ -22,18 +22,21 @@
 
         <div class="max-w-full flex mt-16">
           <input
+            name="searchInput"
             type="text"
             placeholder="Search for address"
             class="flex-1 p-2 border border-gray-300 rounded"
           />
           <div class="flex">
             <button
+              id="btnSearch"
               type="button"
               class="p-2 border border-gray-300 bg-slate-300 rounded"
             >
               Search
             </button>
             <button
+              id="btnReset"
               type="button"
               class="p-2 border border-gray-300 bg-slate-300 rounded"
             >
