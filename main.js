@@ -14,7 +14,7 @@ const AddressBookService = () => {
 
   document.querySelector("#btnReset").addEventListener("click", () => {
     resetAddressBook();
-    const currentContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    const currentContacts = getLocalStorage("contacts");
 
     getAddressBook(currentContacts);
   });
@@ -24,14 +24,14 @@ const AddressBookService = () => {
       "input[name='searchInput']"
     ).value;
 
-    const currentContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    const currentContacts = getLocalStorage("contacts");
 
     const filtered = currentContacts.filter((val) => {
       return (
-        val.fullName.toLowerCase() == searchValue.toLowerCase() ||
-        val.phone.toLowerCase() == searchValue.toLowerCase() ||
-        val.email.toLowerCase() == searchValue.toLowerCase() ||
-        val.address.toLowerCase() == searchValue.toLowerCase()
+        val.fullName.toLowerCase().includes(searchValue.toLowerCase()) ||
+        val.phone.toLowerCase().includes(searchValue.toLowerCase()) ||
+        val.email.toLowerCase().includes(searchValue.toLowerCase()) ||
+        val.address.toLowerCase().includes(searchValue.toLowerCase())
       );
     });
 
@@ -68,9 +68,19 @@ const AddressBookService = () => {
     localStorage.setItem(key, JSON.stringify(values));
   }
 
+  function getLocalStorage(key) {
+    const items = localStorage.getItem(key);
+    return JSON.parse(items) || [];
+  }
+
   function getAddressBook(data) {
     resetAddressBook();
     const addresses = document.getElementById("addresses");
+
+    if (data.length === 0) {
+      return addresses.append("No Data Available");
+    }
+
     data.forEach((contact) => {
       const article = document.createElement("article");
       article.className = "p-2 border border-gray-500 rounded";
@@ -133,7 +143,7 @@ const AddressBookService = () => {
       address: document.querySelector("input[name='address']").value,
     };
 
-    const currentContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    const currentContacts = getLocalStorage("contacts");
 
     const isExist = currentContacts.find((val) => {
       return parseInt(val.id) === parseInt(currentValues.id);
@@ -164,7 +174,7 @@ const AddressBookService = () => {
   }
 
   function deleteContact(id) {
-    const currentContacts = JSON.parse(localStorage.getItem("contacts"));
+    const currentContacts = getLocalStorage("contacts");
 
     const contactIsExist = currentContacts.find(
       (val) => parseInt(val.id) === parseInt(id)
